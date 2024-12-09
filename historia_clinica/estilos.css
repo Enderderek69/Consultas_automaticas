@@ -1,0 +1,425 @@
+/* General */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 1500px;
+    margin: 30px auto;
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+}
+
+h2, h3 {
+    color: #343a40;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.card {
+    background-color: #ffffff;
+    border: 1px solid #dee2e6;
+    border-radius: 8px;
+    padding: 20px;
+    margin: 20px 0;
+}
+
+.btn {
+    display: inline-block;
+    font-size: 16px;
+    padding: 10px 20px;
+    text-align: center;
+    border-radius: 5px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.btn-custom {
+    background-color: #007bff;
+    color: #ffffff;
+    border: none;
+    transition: all 0.3s ease;
+}
+
+.btn-custom:hover {
+    background-color: #0056b3;
+}
+
+/* Estilo uniforme para inputs y selects */
+.horizontal-form select,
+.horizontal-form input {
+    height: 40px;
+    padding: 8px 12px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+
+
+}
+
+#responseContainer {
+    margin-top: 20px;
+}
+
+/* Botón de acción de consulta */
+button {
+    height: 40px;
+    font-size: 16px;
+    padding: 0 20px;
+    background-color: #007bff;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* DataTables */
+table.dataTable {
+    width: 100%;
+    margin: 20px 0;
+    border-collapse: collapse;
+    border: 1px solid #dee2e6;
+}
+
+table.dataTable th, table.dataTable td {
+    text-align: left;
+    padding: 12px;
+}
+
+table.dataTable th {
+    background-color: #007bff;
+    color: #ffffff;
+}
+
+table.dataTable tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    overflow: auto;
+}
+
+.modal-content {
+    background-color: #ffffff;
+    margin: 50px auto;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    max-width: 600px;
+    width: 90%;
+}
+
+.modal-content h3 {
+    color: #007bff;
+    margin-bottom: 20px;
+}
+
+.modal-content label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.modal-content input, 
+.modal-content textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.modal-content button {
+    width: 100%;
+    background-color: #28a745;
+    color: #ffffff;
+    border: none;
+    padding: 12px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.modal-content button:hover {
+    background-color: #218838;
+}
+
+.close {
+    float: right;
+    font-size: 20px;
+    font-weight: bold;
+    color: #343a40;
+    cursor: pointer;
+    margin-top: -10px;
+}
+
+.close:hover {
+    color: #dc3545;
+}
+
+/* Botón de salir */
+.btn-logout {
+    margin-left: auto; /* Empuja el botón 'Salir' al final */
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.btn-logout:hover {
+    background-color: darkred;
+}
+
+
+/* Contenedor principal del formulario */
+.horizontal-form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px; /* Espacio entre los elementos */
+    align-items: center; /* Alinea verticalmente al centro */
+    justify-content: flex-start; /* Alinea los campos a la izquierda */
+}
+
+/* Estilo para el botón "..." */
+.show-more {
+    cursor: pointer;
+    color: #007bff; /* Azul para que parezca interactivo */
+    font-weight: bold;
+    margin-left: 5px;
+    text-decoration: underline;
+    font-size: 12px;
+}
+
+.show-more:hover {
+    color: #0056b3; /* Azul más oscuro al pasar el mouse */
+}
+
+/* Cuando el texto está expandido */
+.long-text.expanded {
+    white-space: normal;
+    overflow: visible;
+    text-overflow: unset;
+}
+
+.long-text {
+    position: relative;
+    font-size: 14px;
+    line-height: 1.5;
+    max-width: 300px; /* Ajusta este valor según tu diseño */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding-right: 20px;
+}
+
+/* Estilo para las celdas de texto largo */
+.long-text {
+    position: relative;
+    font-size: 14px;
+    line-height: 1.5;
+    max-width: 300px; /* Ajusta este valor según tu diseño */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding-right: 20px;
+}
+
+/* Contenedor para los botones */
+.btn-container {
+    display: flex;
+    gap: 10px; /* Espacio entre los botones */
+    justify-content: flex-start; /* Alineación a la izquierda */
+    margin-top: 20px; /* Espacio superior */
+}
+
+/* Asegura que los botones tengan el mismo tamaño */
+.btn-container .btn, 
+.btn-container .btn-logout {
+    width: auto; /* Evita que los botones se estiren */
+    height: 40px;
+    font-size: 16px;
+    padding: 0 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Contenedor del DataTable */
+.dataTables_wrapper {
+    font-family: 'Arial', sans-serif;
+    color: #333;
+}
+
+/* Encabezado de la tabla */
+
+#resultTable th {
+    padding: 10px;
+    text-align: center;
+}
+
+/* Celdas de la tabla */
+#resultTable tbody tr {
+    border-bottom: 1px solid #ddd;
+}
+
+#resultTable tbody tr:hover {
+    background-color: #f1f1f1;
+}
+
+
+/* Buscador y opciones */
+.dataTables_filter input {
+    width: 10%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.dataTables_filter {
+    margin-bottom: 15px;
+}
+
+.dataTables_length select {
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+/* Paginación */
+.dataTables_paginate {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.dataTables_paginate .paginate_button {
+    padding: 5px 10px;
+    margin: 0 5px;
+    border: 1px solid #ddd;
+    background-color: #007bff;
+    color: white;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.dataTables_paginate .paginate_button:hover {
+    background-color: #007bff;
+    cursor: pointer;
+}
+
+.dataTables_paginate .paginate_button.current {
+    background-color: #007bff;
+    color: white;
+}
+
+/* Mensaje de información */
+.dataTables_info {
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+/* Botones personalizados (si aplican) */
+button.btn {
+    font-size: 14px;
+    border-radius: 5px;
+    padding: 8px 12px;
+}
+
+button.btn-warning {
+    background-color: blue;
+    border: 1px solid darkblue;
+    color: white;
+}
+
+button.btn-danger {
+    background-color: #d9534f;
+    border: 1px solid #d43f3a;
+    color: white;
+}
+
+/* Estilo para inputs y selectores dentro de los formularios */
+.horizontal-form select,
+.horizontal-form input {
+    width: 200px; /* Asegúrate de que sean lo suficientemente anchos */
+    padding: 10px; /* Padding para mejor visibilidad */
+    font-size: 16px; /* Tamaño de fuente adecuado */
+    border: 1px solid #ccc; /* Borde suave */
+    border-radius: 5px; /* Bordes redondeados */
+    margin: 5px 0; /* Espacio entre los elementos */
+    box-sizing: border-box; /* Asegura que el padding no afecte el ancho */
+}
+
+/* Estilo para el contenedor de los campos de formulario */
+.horizontal-form div {
+    display: flex;
+    flex-direction: column;
+    width: auto;
+}
+
+/* Estilo para el input de búsqueda en DataTables */
+.dataTables_filter input {
+    width: 300px; /* Aumenta el tamaño del input de búsqueda */
+    padding: 12px; /* Padding más grande */
+    font-size: 16px; /* Tamaño de fuente adecuado */
+    border: 1px solid #ccc; /* Borde sutil */
+    border-radius: 5px; /* Bordes redondeados */
+    margin-left: 10px; /* Espacio entre la barra de búsqueda y los controles */
+}
+
+/* Estilo al hacer foco en el input de búsqueda */
+.dataTables_filter input:focus {
+    border-color: #3498db; /* Color al hacer foco */
+}
+
+/* Estilo para los controles de longitud y paginación */
+.dataTables_length,
+.dataTables_filter {
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+}
+
+.dataTables_length select,
+.dataTables_filter input {
+    padding: 8px;
+    font-size: 16px;
+    margin-right: 10px; /* Espacio entre los controles */
+}
+
+/* Paginación */
+.dataTables_paginate .paginate_button {
+    padding: 8px 12px;
+    background-color: #007bff;
+    color: white;
+    border-radius: 5px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.dataTables_paginate .paginate_button:hover {
+    background-color: #0056b3;
+}
+

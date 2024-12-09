@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Automatización de Consultas SQL</title>
+    <link rel="stylesheet" href="../historia_clinica/estilos.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <div class="card-body">
+                <h2>¿Qué deseas eliminar y/o editar?</h2>
+                    <div class="mb-3 horizontal-form">
+                        <div>
+                            <label for="tipo" class="form-label">Selecciona el documento u otro:</label>
+                            <select name="tipo" id="tipo" class="form-select">
+                                <option value=""></option>
+                                <option value="cedula">Cédula</option>
+                                <option value="historia">Historia</option>
+                            </select>
+                        </div>
+                
+                        <!-- Campo de número -->
+                        <div>
+                            <label for="numero" class="form-label">Número:</label>
+                            <input type="text" id="numero" name="numero" class="form-control" placeholder="Ingrese el número">
+                        </div>
+                        <button type="button" class="btn-logout" onclick="logout()">Salir</button>
+                        <!-- Botón al final -->
+                        <button type="button" id="fetch-historia" class="btn btn-custom">Consultar</button>
+                    </div>
+    
+
+                <!-- Contenedor para resultados -->
+                <div id="responseContainer">
+                    <table id="resultTable" class="display" style="width:100%">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Cédula</th>
+                                <th>Médico</th>
+                                <th>Fecha</th>
+                                <th>Evolución</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Los resultados de la API se insertarán aquí -->
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Ventana modal para edición -->
+                <div id="editModal" class="modal">
+                    <div class="modal-content">
+                        <span id="closeModal" class="close">&times;</span>
+                        <h3>Editar Registro</h3>
+                        <form id="editForm">
+                            <div>
+                                <label for="editCedula">Cédula:</label>
+                                <input type="text" id="editCedula" name="cedula" readonly>
+                            </div>
+                            <div>
+                                <label for="editMedico">Médico:</label>
+                                <input type="text" id="editMedico" name="medico" required>
+                            </div>
+                            
+                            <div>
+                                <label for="editEvolucion">Evolución:</label>
+                                <textarea id="editEvolucion" name="evolucion" required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-success">Guardar Cambios</button>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="../historia_clinica/script.js"></script>
+    <script src="../historia_clinica/metodos.js"></script>  
+    <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+
+    <script>
+        // Función para salir (redirigir a la página de login o inicio)
+        function logout() {
+            // Redirige al usuario a la página de login
+            window.location.href = '../login.html';  // Cambia esta URL a la que desees
+        }
+    </script>
+</body>
+</html>
+
+

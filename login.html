@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login y Redirección</title>
+    <style>
+        /* Estilo General */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        /* Estilo del contenedor */
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 300px;
+        }
+
+        /* Estilo del form */
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Estilo del label */
+        .form-label {
+            font-size: 14px;
+            color: #333;
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        /* Estilo del input */
+        .form-input {
+            width: 100%;
+            padding: 10px;
+            font-size: 14px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #fff;
+            color: #333;
+            box-sizing: border-box;
+            margin-bottom: 15px;
+        }
+
+        /* Estilo del botón */
+        .form-button {
+            padding: 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .form-button:hover {
+            background-color: #0056b3;
+        }
+
+        /* Mensajes de error */
+        .error-message {
+            color: red;
+            font-size: 12px;
+            margin-bottom: 15px;
+        }
+
+        /* Estilo del select */
+        .form-select {
+            width: 100%;
+            padding: 10px;
+            font-size: 14px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #fff;
+            color: #333;
+            box-sizing: border-box;
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Formulario de Login -->
+    <div class="container" id="loginContainer">
+        <h2>Iniciar sesión</h2>
+        <form id="loginForm">
+            <div>
+                <label for="username" class="form-label">Usuario:</label>
+                <input type="text" id="username" class="form-input" placeholder="Ingresa tu usuario">
+            </div>
+            <div>
+                <label for="password" class="form-label">Contraseña:</label>
+                <input type="password" id="password" class="form-input" placeholder="Ingresa tu contraseña">
+            </div>
+            <div>
+                <label for="opcion" class="form-label">Selecciona una opción:</label>
+                <select name="opcion" id="opcion" class="form-select">
+                    <option value="historia_c">1: Historia clínica</option>
+                    <option value="medicamentos_aplicados">2: Medicamentos aplicados</option>
+                    <option value="descripcion_quirurgica">3: Descripción quirúrgica</option>
+                    <option value="medicos">4: Médicos</option>
+                    <option value="usuarios">5: Usuarios</option>
+                    <option value="ingreso_hospitalizacion">6: Ingreso hospitalización</option>
+                    <option value="ingreso_urgencia">7: Ingreso urgencia</option>
+                </select>
+            </div>
+            <button type="button" class="form-button" onclick="login()">Iniciar sesión</button>
+            <p class="error-message" id="errorMessage"></p>
+        </form>
+    </div>
+
+    <script>
+        // Función de login (sin base de datos, solo con validación local)
+        function login() {
+            var username = document.getElementById('username').value;
+            var password = document.getElementById('password').value;
+            var errorMessage = document.getElementById('errorMessage');
+
+            // Validación simple de credenciales
+            if (username === "SISTEMAS" && password === "515T3M45") {
+                // Si el login es exitoso, oculta el formulario de login y muestra la página correspondiente
+                document.getElementById('loginContainer').style.display = "none";
+
+                // Redirige a la página seleccionada
+                var opcionSeleccionada = document.getElementById('opcion').value;
+                var url = '';
+
+                switch(opcionSeleccionada) {
+                    case 'historia_c':
+                        url = '../APP/historia_clinica/index.html';  // URL de la página de historia clínica
+                        break;
+                    case 'medicamentos_aplicados':
+                        url = 'medicamentos_aplicados.html';  // URL de la página de medicamentos aplicados
+                        break;
+                    case 'descripcion_quirurgica':
+                        url = 'descripcion_quirurgica.html';  // URL de la página de descripción quirúrgica
+                        break;
+                    case 'medicos':
+                        url = 'medicos.html';  // URL de la página de médicos
+                        break;
+                    case 'usuarios':
+                        url = 'usuarios.html';  // URL de la página de usuarios
+                        break;
+                    case 'ingreso_hospitalizacion':
+                        url = 'ingreso_hospitalizacion.html';  // URL de la página de ingreso hospitalización
+                        break;
+                    case 'ingreso_urgencia':
+                        url = 'ingreso_urgencia.html';  // URL de la página de ingreso urgencia
+                        break;
+                    default:
+                        alert('Por favor selecciona una opción válida.');
+                        return;
+                }
+
+                // Redirige a la página seleccionada
+                window.location.href = url;
+            } else {
+                // Si las credenciales son incorrectas, muestra un mensaje de error
+                errorMessage.textContent = "Usuario o contraseña incorrectos.";
+            }
+        }
+    </script>
+
+</body>
+</html>
+
